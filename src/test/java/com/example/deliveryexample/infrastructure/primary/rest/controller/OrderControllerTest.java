@@ -5,9 +5,7 @@ import com.example.deliveryexample.infrastructure.primary.rest.mapper.DelivererR
 import com.example.deliveryexample.infrastructure.primary.rest.mapper.OrderRequestMapper;
 import com.example.deliveryexample.infrastructure.primary.rest.response.DelivererResponse;
 import com.example.deliveryexample.utils.mother.DelivererMother;
-import com.example.deliveryexample.utils.mother.FoodMother;
 import com.example.deliveryexample.utils.mother.OrderMother;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

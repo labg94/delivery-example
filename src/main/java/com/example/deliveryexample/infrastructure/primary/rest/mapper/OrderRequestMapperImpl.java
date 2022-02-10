@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class OrderRequestMapperImpl implements OrderRequestMapper {
     @Override
     public Order toModel(OrderRequest request) {
-        return new Order(request.food(), request.restaurant());
+        return new Order(request.getFood(), request.getRestaurant());
     }
 }

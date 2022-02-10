@@ -1,6 +1,8 @@
 package com.example.deliveryexample.utils.mother;
 
 import com.example.deliveryexample.core.domain.Deliverer;
+import com.example.deliveryexample.infrastructure.primary.rest.response.DelivererResponse;
+import com.example.deliveryexample.infrastructure.primary.rest.response.Dish;
 import com.example.deliveryexample.infrastructure.secundary.db.entity.DelivererEntity;
 import org.jetbrains.annotations.NotNull;
 
@@ -13,8 +15,12 @@ public class DelivererMother {
         return new Deliverer(NAME, RUT);
     }
 
-    @NotNull
     public static DelivererEntity entity() {
         return DelivererEntity.from(NAME, RUT);
     }
+
+    public static DelivererResponse response(Dish dish) {
+        return new DelivererResponse(NAME, RUT, dish);
+    }
+
 }

@@ -36,7 +36,7 @@ public class Deliverer {
         var that = (Deliverer) obj;
         return Objects.equals(this.name, that.name) &&
                 Objects.equals(this.rut, that.rut) &&
-                Objects.equals(this.foodToDeliver, that.foodToDeliver);
+                Objects.equals(this.foodToDeliver.get(), that.foodToDeliver.get());
     }
 
     @Override

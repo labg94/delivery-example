@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class RestaurantTest {
 
-    private final Restaurant restaurant = RestaurantMother.createRestaurant();
+    private final Restaurant restaurant = RestaurantMother.model();
 
 
     @Test

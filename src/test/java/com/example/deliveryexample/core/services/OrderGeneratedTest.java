@@ -6,7 +6,7 @@ import com.example.deliveryexample.core.domain.Order;
 import com.example.deliveryexample.core.errors.PlateNotFound;
 import com.example.deliveryexample.core.errors.RestaurantNotfound;
 import com.example.deliveryexample.core.errors.UnavailableDeliverers;
-import com.example.deliveryexample.utils.mother.DeliverMother;
+import com.example.deliveryexample.utils.mother.DelivererMother;
 import com.example.deliveryexample.utils.mother.FoodMother;
 import com.example.deliveryexample.utils.mother.NewOrderToDeliverMother;
 import com.example.deliveryexample.utils.mother.RestaurantMother;
@@ -23,7 +23,7 @@ class OrderGeneratedTest {
     @DisplayName("Given an orden should deliver the food")
     void GoodDeliver() {
 
-        Order order = new Order(FoodMother.pasta().name(), RestaurantMother.createRestaurant().name());
+        Order order = new Order(FoodMother.pasta().name(), RestaurantMother.model().name());
 
         NewOrderToDeliver orderGenerated = NewOrderToDeliverMother.validOrderGenerated();
 
@@ -31,8 +31,8 @@ class OrderGeneratedTest {
 
 
         assertEquals(FoodMother.pasta(), deliverer.foodToDeliver());
-        assertEquals(DeliverMother.deliveryTester().name(), deliverer.name());
-        assertEquals(DeliverMother.deliveryTester().rut(), deliverer.rut());
+        assertEquals(DelivererMother.model().name(), deliverer.name());
+        assertEquals(DelivererMother.model().rut(), deliverer.rut());
     }
 
 
@@ -41,7 +41,7 @@ class OrderGeneratedTest {
     void foodNotFound() {
 
         String invalidPlateName = "Guasacaca";
-        Order order = new Order(invalidPlateName, RestaurantMother.createRestaurant().name());
+        Order order = new Order(invalidPlateName, RestaurantMother.model().name());
 
         NewOrderToDeliver orderGenerated = NewOrderToDeliverMother.validOrderGenerated();
 
@@ -51,7 +51,7 @@ class OrderGeneratedTest {
 
         String expectedErrorMessage = String.format("The plate %s cannot be cooked in the restaurant selected %s",
                 invalidPlateName,
-                RestaurantMother.createRestaurant().name());
+                RestaurantMother.model().name());
 
 
         assertEquals(expectedErrorMessage, exception.getMessage());
@@ -81,7 +81,7 @@ class OrderGeneratedTest {
     @Test
     void notDelivererFound() {
 
-        Order order = new Order(FoodMother.pasta().name(), RestaurantMother.createRestaurant().name());
+        Order order = new Order(FoodMother.pasta().name(), RestaurantMother.model().name());
 
         NewOrderToDeliver orderGenerated = NewOrderToDeliverMother.delivererException();
 

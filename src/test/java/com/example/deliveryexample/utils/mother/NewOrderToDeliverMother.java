@@ -9,13 +9,13 @@ import com.example.deliveryexample.core.services.OrderGenerated;
 
 public class NewOrderToDeliverMother {
     public static NewOrderToDeliver validOrderGenerated() {
-        DelivererRepository deliveryRepository = DeliverMother::deliveryTester;
-        RestaurantRepository restaurantRepository = name -> RestaurantMother.createRestaurant();
+        DelivererRepository deliveryRepository = DelivererMother::model;
+        RestaurantRepository restaurantRepository = name -> RestaurantMother.model();
         return new OrderGenerated(deliveryRepository, restaurantRepository);
     }
 
     public static NewOrderToDeliver restaurantException(String restaurantName) {
-        DelivererRepository deliveryRepository = DeliverMother::deliveryTester;
+        DelivererRepository deliveryRepository = DelivererMother::model;
         RestaurantRepository restaurantRepository = name -> {
             throw new RestaurantNotfound(restaurantName);
         };
@@ -27,7 +27,7 @@ public class NewOrderToDeliverMother {
         DelivererRepository deliveryRepository = () -> {
             throw new UnavailableDeliverers();
         };
-        RestaurantRepository restaurantRepository = name -> RestaurantMother.createRestaurant();
+        RestaurantRepository restaurantRepository = name -> RestaurantMother.model();
 
         return new OrderGenerated(deliveryRepository, restaurantRepository);
     }

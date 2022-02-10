@@ -1,14 +1,14 @@
 package com.example.deliveryexample.core.services;
 
+import com.example.deliveryexample.core.NewOrderToDeliver;
 import com.example.deliveryexample.core.domain.Deliverer;
 import com.example.deliveryexample.core.domain.Order;
 import com.example.deliveryexample.core.errors.PlateNotFound;
 import com.example.deliveryexample.core.errors.RestaurantNotfound;
 import com.example.deliveryexample.core.errors.UnavailableDeliverers;
-import com.example.deliveryexample.core.secundary.DelivererRepository;
-import com.example.deliveryexample.core.secundary.RestaurantRepository;
 import com.example.deliveryexample.utils.mother.DeliverMother;
 import com.example.deliveryexample.utils.mother.FoodMother;
+import com.example.deliveryexample.utils.mother.NewOrderToDeliverMother;
 import com.example.deliveryexample.utils.mother.RestaurantMother;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -25,8 +25,7 @@ class OrderGeneratedTest {
 
         Order order = new Order(FoodMother.pasta().name(), RestaurantMother.createRestaurant().name());
 
-        OrderGenerated orderGenerated = validOrderGenerated();
-
+        NewOrderToDeliver orderGenerated = NewOrderToDeliverMother.validOrderGenerated();
 
         Deliverer deliverer = orderGenerated.sendDelivery(order);
 
@@ -44,7 +43,7 @@ class OrderGeneratedTest {
         String invalidPlateName = "Guasacaca";
         Order order = new Order(invalidPlateName, RestaurantMother.createRestaurant().name());
 
-        OrderGenerated orderGenerated = validOrderGenerated();
+        NewOrderToDeliver orderGenerated = NewOrderToDeliverMother.validOrderGenerated();
 
         PlateNotFound exception = assertThrows(PlateNotFound.class,
                 () -> orderGenerated.sendDelivery(order));
@@ -59,12 +58,6 @@ class OrderGeneratedTest {
 
     }
 
-    private OrderGenerated validOrderGenerated() {
-        DelivererRepository deliveryRepository = DeliverMother::deliveryTester;
-        RestaurantRepository restaurantRepository = name -> RestaurantMother.createRestaurant();
-        return new OrderGenerated(deliveryRepository, restaurantRepository);
-    }
-
     @Test
     @DisplayName("Given an orden with an invalid restaurant should throw an exception")
     void restaurantNotFound() {
@@ -72,12 +65,7 @@ class OrderGeneratedTest {
         String restaurantName = "Le invalid";
         Order order = new Order(FoodMother.pasta().name(), restaurantName);
 
-        DelivererRepository deliveryRepository = DeliverMother::deliveryTester;
-        RestaurantRepository restaurantRepository = name -> {
-            throw new RestaurantNotfound(restaurantName);
-        };
-
-        OrderGenerated orderGenerated = new OrderGenerated(deliveryRepository, restaurantRepository);
+        NewOrderToDeliver orderGenerated = NewOrderToDeliverMother.restaurantException(restaurantName);
 
 
         RestaurantNotfound restaurantNotfound = assertThrows(RestaurantNotfound.class,
@@ -93,16 +81,9 @@ class OrderGeneratedTest {
     @Test
     void notDelivererFound() {
 
-        String restaurantName = "Le invalid";
-        Order order = new Order(FoodMother.pasta().name(), restaurantName);
+        Order order = new Order(FoodMother.pasta().name(), RestaurantMother.createRestaurant().name());
 
-        DelivererRepository deliveryRepository = () -> {
-            throw new UnavailableDeliverers();
-        };
-        RestaurantRepository restaurantRepository = name -> RestaurantMother.createRestaurant();
-
-        OrderGenerated orderGenerated = new OrderGenerated(deliveryRepository, restaurantRepository);
-
+        NewOrderToDeliver orderGenerated = NewOrderToDeliverMother.delivererException();
 
         UnavailableDeliverers exception = assertThrows(UnavailableDeliverers.class,
                 () -> orderGenerated.sendDelivery(order));

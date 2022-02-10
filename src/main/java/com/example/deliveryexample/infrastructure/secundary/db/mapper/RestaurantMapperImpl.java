@@ -1,9 +1,9 @@
-package com.example.deliveryexample.infrastructure.secundary.persitence.mapper;
+package com.example.deliveryexample.infrastructure.secundary.db.mapper;
 
 import com.example.deliveryexample.core.domain.Food;
 import com.example.deliveryexample.core.domain.Restaurant;
-import com.example.deliveryexample.infrastructure.secundary.persitence.entity.Plate;
-import com.example.deliveryexample.infrastructure.secundary.persitence.entity.RestaurantEntity;
+import com.example.deliveryexample.infrastructure.secundary.db.entity.Plate;
+import com.example.deliveryexample.infrastructure.secundary.db.entity.RestaurantEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,9 +1,9 @@
-package com.example.deliveryexample.infrastructure.secundary.persitence.repository;
+package com.example.deliveryexample.infrastructure.secundary.db.repository;
 
 import com.example.deliveryexample.core.domain.Deliverer;
 import com.example.deliveryexample.core.errors.UnavailableDeliverers;
-import com.example.deliveryexample.infrastructure.secundary.persitence.dao.DelivererData;
-import com.example.deliveryexample.infrastructure.secundary.persitence.mapper.DelivererMapper;
+import com.example.deliveryexample.infrastructure.secundary.db.dao.DelivererData;
+import com.example.deliveryexample.infrastructure.secundary.db.mapper.DelivererMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

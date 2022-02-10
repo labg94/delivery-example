@@ -1,6 +1,6 @@
-package com.example.deliveryexample.infrastructure.secundary.persitence.dao;
+package com.example.deliveryexample.infrastructure.secundary.db.dao;
 
-import com.example.deliveryexample.infrastructure.secundary.persitence.entity.RestaurantEntity;
+import com.example.deliveryexample.infrastructure.secundary.db.entity.RestaurantEntity;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;

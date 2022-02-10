@@ -1,4 +1,4 @@
-package com.example.deliveryexample.infrastructure.secundary.persitence.entity;
+package com.example.deliveryexample.infrastructure.secundary.db.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

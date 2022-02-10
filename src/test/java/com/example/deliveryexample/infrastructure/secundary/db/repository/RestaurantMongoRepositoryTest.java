@@ -1,9 +1,9 @@
-package com.example.deliveryexample.infrastructure.secundary.persitence.repository;
+package com.example.deliveryexample.infrastructure.secundary.db.repository;
 
 import com.example.deliveryexample.core.domain.Restaurant;
 import com.example.deliveryexample.core.errors.RestaurantNotfound;
-import com.example.deliveryexample.infrastructure.secundary.persitence.dao.RestaurantData;
-import com.example.deliveryexample.infrastructure.secundary.persitence.mapper.RestaurantMapper;
+import com.example.deliveryexample.infrastructure.secundary.db.dao.RestaurantData;
+import com.example.deliveryexample.infrastructure.secundary.db.mapper.RestaurantMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

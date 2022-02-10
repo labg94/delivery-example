@@ -1,11 +1,11 @@
-package com.example.deliveryexample.infrastructure.secundary.persitence.repository;
+package com.example.deliveryexample.infrastructure.secundary.db.repository;
 
 import com.example.deliveryexample.core.domain.Restaurant;
 import com.example.deliveryexample.core.errors.RestaurantNotfound;
 import com.example.deliveryexample.core.secundary.RestaurantRepository;
-import com.example.deliveryexample.infrastructure.secundary.persitence.dao.RestaurantData;
-import com.example.deliveryexample.infrastructure.secundary.persitence.entity.RestaurantEntity;
-import com.example.deliveryexample.infrastructure.secundary.persitence.mapper.RestaurantMapper;
+import com.example.deliveryexample.infrastructure.secundary.db.dao.RestaurantData;
+import com.example.deliveryexample.infrastructure.secundary.db.entity.RestaurantEntity;
+import com.example.deliveryexample.infrastructure.secundary.db.mapper.RestaurantMapper;
 import org.springframework.stereotype.Repository;
 
 @Repository

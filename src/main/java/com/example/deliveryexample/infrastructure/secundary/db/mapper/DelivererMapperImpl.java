@@ -1,7 +1,7 @@
-package com.example.deliveryexample.infrastructure.secundary.persitence.mapper;
+package com.example.deliveryexample.infrastructure.secundary.db.mapper;
 
 import com.example.deliveryexample.core.domain.Deliverer;
-import com.example.deliveryexample.infrastructure.secundary.persitence.entity.DelivererEntity;
+import com.example.deliveryexample.infrastructure.secundary.db.entity.DelivererEntity;
 import org.springframework.stereotype.Component;
 
 @Component

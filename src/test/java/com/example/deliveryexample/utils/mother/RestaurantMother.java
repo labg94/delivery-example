@@ -2,8 +2,8 @@ package com.example.deliveryexample.utils.mother;
 
 import com.example.deliveryexample.core.domain.Food;
 import com.example.deliveryexample.core.domain.Restaurant;
-import com.example.deliveryexample.infrastructure.secundary.persitence.entity.Plate;
-import com.example.deliveryexample.infrastructure.secundary.persitence.entity.RestaurantEntity;
+import com.example.deliveryexample.infrastructure.secundary.db.entity.Plate;
+import com.example.deliveryexample.infrastructure.secundary.db.entity.RestaurantEntity;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.deliveryexample.infrastructure.secundary.persitence.mapper;
+package com.example.deliveryexample.infrastructure.secundary.db.mapper;
 
 import com.example.deliveryexample.utils.mother.DelivererMother;
 import org.junit.jupiter.api.DisplayName;

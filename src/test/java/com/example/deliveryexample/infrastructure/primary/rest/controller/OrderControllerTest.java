@@ -6,17 +6,18 @@ import com.example.deliveryexample.infrastructure.primary.rest.mapper.OrderReque
 import com.example.deliveryexample.infrastructure.primary.rest.response.DelivererResponse;
 import com.example.deliveryexample.utils.mother.DelivererMother;
 import com.example.deliveryexample.utils.mother.OrderMother;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import static com.example.deliveryexample.utils.mother.FoodMother.pastaAsDish;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -40,7 +41,8 @@ class OrderControllerTest {
 
 
     @Test
-    void addingANullValue() throws Exception {
+    @DisplayName("Given an order should return de deliverer with a dish")
+    void addingANewOrder() throws Exception {
         DelivererResponse expectedResponse = DelivererMother.response(pastaAsDish());
 
         when(orderMapper.toModel(OrderMother.orderRequest())).thenReturn(OrderMother.order());
@@ -48,11 +50,11 @@ class OrderControllerTest {
         when(useCase.sendDelivery(OrderMother.order())).thenReturn(DelivererMother.model());
 
 
+        byte[] bodyContent = objectMapper.writeValueAsBytes(OrderMother.orderRequest());
+        var call = post("/orders").content(bodyContent).contentType(APPLICATION_JSON);
+
         String response = mockMvc
-                .perform(
-                        post("/orders").content(objectMapper.writeValueAsBytes(OrderMother.orderRequest()))
-                                       .contentType(MediaType.APPLICATION_JSON)
-                )
+                .perform(call)
                 .andExpect(status().isOk())
                 .andReturn()
                 .getResponse().getContentAsString();
@@ -61,6 +63,7 @@ class OrderControllerTest {
 
 
         assertEquals(expectedResponse, delivererResponse);
+        assertEquals(pastaAsDish(),delivererResponse.getDish());
 
     }
 }

@@ -9,6 +9,7 @@ import com.example.deliveryexample.infrastructure.secundary.db.mapper.DelivererM
 import com.example.deliveryexample.infrastructure.secundary.db.mapper.DelivererMapperImpl;
 import com.example.deliveryexample.utils.mother.DelivererMother;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
@@ -31,6 +32,7 @@ class DelivererMongoRepositoryIntegrationTest {
     }
 
     @Test
+    @DisplayName("When a deliverer is available should be returned")
     void findADeliverer() {
         DelivererEntity entity = DelivererMother.entity();
         delivererData.save(entity);
@@ -45,6 +47,7 @@ class DelivererMongoRepositoryIntegrationTest {
     }
 
     @Test
+    @DisplayName("When there is not a deliverer available should throw an exception")
     void notFound() {
 
 

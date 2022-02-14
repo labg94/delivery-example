@@ -6,13 +6,13 @@ import com.example.deliveryexample.infrastructure.primary.rest.mapper.OrderReque
 import com.example.deliveryexample.infrastructure.primary.rest.response.DelivererResponse;
 import com.example.deliveryexample.utils.mother.DelivererMother;
 import com.example.deliveryexample.utils.mother.OrderMother;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import static com.example.deliveryexample.utils.mother.FoodMother.pastaAsDish;
 import static org.junit.jupiter.api.Assertions.assertEquals;

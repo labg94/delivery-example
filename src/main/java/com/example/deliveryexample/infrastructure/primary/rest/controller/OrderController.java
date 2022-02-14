@@ -7,6 +7,7 @@ import com.example.deliveryexample.infrastructure.primary.rest.mapper.DelivererR
 import com.example.deliveryexample.infrastructure.primary.rest.mapper.OrderRequestMapper;
 import com.example.deliveryexample.infrastructure.primary.rest.request.OrderRequest;
 import com.example.deliveryexample.infrastructure.primary.rest.response.DelivererResponse;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,18 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("orders")
+@RequiredArgsConstructor
 public class OrderController {
 
     private final DelivererResponseMapper delivererMapper;
     private final OrderRequestMapper orderMapper;
     private final NewOrderToDeliver useCase;
-
-    public OrderController(DelivererResponseMapper delivererMapper, OrderRequestMapper orderMapper, NewOrderToDeliver useCase) {
-        this.delivererMapper = delivererMapper;
-        this.orderMapper = orderMapper;
-        this.useCase = useCase;
-    }
-
 
     @PostMapping
     public DelivererResponse newOrderArrived(@RequestBody OrderRequest request) {

@@ -5,7 +5,6 @@ import com.example.deliveryexample.core.domain.Food;
 import com.example.deliveryexample.infrastructure.primary.rest.response.DelivererResponse;
 import com.example.deliveryexample.infrastructure.primary.rest.response.Dish;
 import com.example.deliveryexample.infrastructure.secundary.db.entity.DelivererEntity;
-import org.jetbrains.annotations.NotNull;
 
 public class DelivererMother {
 

@@ -63,7 +63,7 @@ class OrderControllerTest {
 
 
         assertEquals(expectedResponse, delivererResponse);
-        assertEquals(pastaAsDish(),delivererResponse.getDish());
+        assertEquals(pastaAsDish(),delivererResponse.dish());
 
     }
 }

@@ -8,16 +8,8 @@ import com.example.deliveryexample.core.domain.Restaurant;
 import com.example.deliveryexample.core.secundary.DelivererRepository;
 import com.example.deliveryexample.core.secundary.RestaurantRepository;
 
-public class OrderGenerated implements NewOrderToDeliver {
-
-    private final DelivererRepository delivererRepository;
-
-    private final RestaurantRepository restaurantRepository;
-
-    public OrderGenerated(DelivererRepository delivererRepository, RestaurantRepository restaurantRepository) {
-        this.delivererRepository = delivererRepository;
-        this.restaurantRepository = restaurantRepository;
-    }
+public record OrderGenerated(DelivererRepository delivererRepository,
+                             RestaurantRepository restaurantRepository) implements NewOrderToDeliver {
 
     @Override
     public Deliverer sendDelivery(Order order) {

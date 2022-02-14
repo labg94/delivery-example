@@ -15,16 +15,17 @@ public class RestaurantMapperImpl implements RestaurantMapper {
     @Override
     public Restaurant toDomain(RestaurantEntity restaurantEntity) {
 
-        List<Food> foods = restaurantEntity.plates().stream()
-                                           .map(this::plateToFood)
-                                           .toList();
+        List<Food> foods = getFoods(restaurantEntity);
 
         return new Restaurant(restaurantEntity.name(), restaurantEntity.rut(), foods);
+    }
+
+    private List<Food> getFoods(RestaurantEntity restaurantEntity) {
+        return restaurantEntity.plates().stream().map(this::plateToFood).toList();
     }
 
     private Food plateToFood(Plate plate) {
         return new Food(plate.name(), plate.calories(), plate.isVegan());
     }
-
-
+    
 }

@@ -27,8 +27,6 @@ public class OrderGenerated implements NewOrderToDeliver {
 
         Food food = restaurant.cookPlate(order.foodName());
 
-        deliverer.receiveFood(food);
-
-        return deliverer;
+        return deliverer.receiveFood(food);
     }
 }

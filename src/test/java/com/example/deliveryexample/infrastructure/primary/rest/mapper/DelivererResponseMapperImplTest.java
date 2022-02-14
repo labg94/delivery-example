@@ -20,10 +20,9 @@ class DelivererResponseMapperImplTest {
     @Test
     void deliveryWithFood() {
 
-        Deliverer model = model();
-        model.receiveFood(pasta());
+        Deliverer delivererWithFood = model(pasta());
 
-        DelivererResponse delivererResponse = mapper.toResponse(model);
+        DelivererResponse delivererResponse = mapper.toResponse(delivererWithFood);
 
 
         assertEquals(DelivererMother.response(pastaAsDish()), delivererResponse);

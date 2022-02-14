@@ -8,6 +8,6 @@ import org.springframework.stereotype.Component;
 public class DelivererMapperImpl implements DelivererMapper {
     @Override
     public Deliverer toModel(DelivererEntity delivererEntity) {
-        return new Deliverer(delivererEntity.name(), delivererEntity.rut());
+        return new Deliverer(delivererEntity.name(), delivererEntity.rut(),null);
     }
 }

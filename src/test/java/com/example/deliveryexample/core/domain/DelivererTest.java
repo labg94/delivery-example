@@ -13,12 +13,11 @@ class DelivererTest {
     void addFood() {
 
         Deliverer deliverer = DelivererMother.model();
-        Food foodBefore = deliverer.foodToDeliver();
 
-        deliverer.receiveFood(FoodMother.pasta());
+        Deliverer updatedDeliverer = deliverer.receiveFood(FoodMother.pasta());
 
-        assertNull(foodBefore);
-        assertEquals(FoodMother.pasta(),deliverer.foodToDeliver());
+        assertNull(deliverer.foodToDeliver());
+        assertEquals(FoodMother.pasta(), updatedDeliverer.foodToDeliver());
     }
 
 }
